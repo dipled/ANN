@@ -2,11 +2,12 @@
 #include <stdlib.h>
 #include <math.h>
 
-double func(double x);
-                                                                   // numero maximo de iteracoes = |b-a|/tol
-void bissec(double a, double b, int n, double tolF, double tolIn); // limite esquerdo do intervalo, limite direito do intervalo,
-                                                                   // numero de iteracoes, tolerancia do valor de y, 
-                                                                   //tolerancia do intervalo
+double func(double x); // funcao
+// numero maximo de iteracoes = |b-a|/tol
+void bissec(double a, double b, int n, double tolF, double tolIn); // recebe limite esquerdo e direito do intervalo,
+                                                                   // numero de iteracoes, tolerancia do valor de y,
+                                                                   // tolerancia do intervalo
+
 int main()
 {
     bissec(3.300878, 4.213126, 50, 0, 2.10923 * pow(10, -13));
