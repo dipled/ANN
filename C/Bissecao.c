@@ -10,16 +10,17 @@ void bissec(double a, double b, int n, double tolF, double tolIn); // recebe lim
 
 int main()
 {
-    bissec(3.300878, 4.213126, 50, 0, 2.10923 * pow(10, -13));
+    bissec(1.7649, 5.8697, 39, 0, 0);
     return 0;
 }
 double func(double x)
 {
 
-    return x * x * x - 7 * x * x + 14 * x - 7;
+    return x*x-3.793*x+1.7444;
 }
 void bissec(double a, double b, int n, double tolF, double tolIn)
 {
+    FILE *f = fopen("out.txt","w+");
     double fa = func(a), fb = func(b);
     if ((fa * fb) == 0)
     {
@@ -50,7 +51,11 @@ void bissec(double a, double b, int n, double tolF, double tolIn)
             printf("Raiz aproximada (numero de iteracoes) encontrada x%d = %.7f\n", i + 1, m);
             return;
         }
-        // printf("x%d = %.7f\n",i+1,m);
+        if(i+1 == 2 | i+1 == 3|i+1 == 4|i+1 == 5|i+1 == 6|i+1 == 7)//Usado para printar os resultados das iteracoes desejadas
+        {
+            fprintf(f,"%.7f,",m);
+        }
+        printf("x%d = %.7f\n",i+1,m);
         if (fm * fa < 0)
         {
             b = m;
