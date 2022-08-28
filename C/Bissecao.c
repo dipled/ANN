@@ -10,17 +10,20 @@ void bissec(double a, double b, int n, double tolF, double tolIn); // recebe lim
 
 int main()
 {
-    bissec(1.7649, 5.8697, 39, 0, 0);
+    bissec(0.24,17.97, 39, 0, 0);
     return 0;
 }
 double func(double x)
 {
 
-    return x*x-3.793*x+1.7444;
+    return -7.97+sqrt(2*9.81*x)*tanh(sqrt(2*9.81*x)/(2*6.08)*6.94);
 }
 void bissec(double a, double b, int n, double tolF, double tolIn)
 {
-    FILE *f = fopen("out.txt","w+");
+    int iterations[] = {2,4,8,12};
+    int i2 = 0;
+
+    FILE *f = fopen("out.txt", "w+");
     double fa = func(a), fb = func(b);
     if ((fa * fb) == 0)
     {
@@ -33,29 +36,30 @@ void bissec(double a, double b, int n, double tolF, double tolIn)
         double fm = func(m);
         if (fm == 0)
         {
-            printf("Raiz da funcao encontrada: %.7f", m);
+            printf("Raiz da funcao encontrada: %.16f", m);
             return;
         }
         if (fabs(fm) <= tolF)
         {
-            printf("Raiz aproximada (tolerancia m) encontrada x%d = %.7f\n", i + 1, m);
+            printf("Raiz aproximada (tolerancia m) encontrada x%d = %.16f\n", i + 1, m);
             return;
         }
         if (fabs(b - a) <= tolIn)
         {
-            printf("Raiz aproximada (tolerancia intervalo) encontrada x%d = %.7f\n", i + 1, m);
+            printf("Raiz aproximada (tolerancia intervalo) encontrada x%d = %.16f\n", i + 1, m);
             return;
         }
         if (i == n - 1)
         {
-            printf("Raiz aproximada (numero de iteracoes) encontrada x%d = %.7f\n", i + 1, m);
+            printf("Raiz aproximada (numero de iteracoes) encontrada x%d = %.16f\n", i + 1, m);
             return;
         }
-        if(i+1 == 2 | i+1 == 3|i+1 == 4|i+1 == 5|i+1 == 6|i+1 == 7)//Usado para printar os resultados das iteracoes desejadas
+        if (i + 1 == iterations[i2])
         {
-            fprintf(f,"%.7f,",m);
+            i2+= 1;
+            fprintf(f, "%.16f,", m);
         }
-        printf("x%d = %.7f\n",i+1,m);
+        printf("x%d = %.16f\n", i + 1, m);
         if (fm * fa < 0)
         {
             b = m;
