@@ -7,17 +7,18 @@ void fpos(double a, double b, int n); // Recebe lim. esq. e dir. do intervalo e 
 
 int main()
 {
-    fpos(0.49,17.01, 100);
+    fpos(0,4.46, 100);
     return 0;
 }
 
 double f(double x)
 {
-return -7.97+sqrt(2*9.81*x)*tanh(sqrt(2*9.81*x)/(2*6.08)*6.94);}
+    return (24000*pow(x,2)-220480*x+332343)/2000;
+}
 
 void fpos(double a, double b, int n)
 {
-    int iterations[] = {2,4,7,11};
+    int iterations[] = {2, 4, 7, 11};
     int i2 = 0;
     FILE *fp = fopen("out.txt", "w+");
     double fa = f(a);
@@ -33,7 +34,7 @@ void fpos(double a, double b, int n)
         printf("x_%d = %.16f\n", i + 1, x);
         if (i + 1 == iterations[i2]) // Usado para printar os resultados das iteracoes desejadas
         {
-            i2+=1;
+            i2 += 1;
             fprintf(fp, "%.16f,", x);
         }
         double fx = f(x);
