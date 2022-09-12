@@ -1,6 +1,19 @@
 #include <stdio.h>
-#define NUMROWS 2
-#define NUMCOLS 3
+#define NUMROWS 3
+#define NUMCOLS 4
+
+void gauss(double E[NUMROWS][NUMCOLS]);
+void reverse_substitution(double E[NUMROWS][NUMCOLS]);
+void printMatrix(double m[NUMROWS][NUMCOLS]);
+
+int main()
+{
+    double E[NUMROWS][NUMCOLS] = {1, 1,1, 4,
+                                  2, 0, 1, 4,
+                                  1, 2, -1, 1};
+    gauss(E);
+    return 0;
+}
 void printMatrix(double m[NUMROWS][NUMCOLS])
 {
     printf("\n");
@@ -66,12 +79,4 @@ void gauss(double E[NUMROWS][NUMCOLS])
         }
     }
     reverse_substitution(E);
-}
-
-int main()
-{
-    double E[NUMROWS][NUMCOLS] = {1, 1, 2,
-                                  1, -1, 0};
-    gauss(E);
-    return 0;
 }
