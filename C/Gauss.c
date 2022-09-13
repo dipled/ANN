@@ -27,7 +27,7 @@ void printMatrix(double m[NUMROWS][NUMCOLS])
     {
         for (int j = 0; j < NUMCOLS; j += 1)
         {
-            printf("%.8f ", m[i][j]);
+            printf("%.8f, ", m[i][j]);
         }
         printf("\n");
     }
