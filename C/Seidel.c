@@ -1,8 +1,9 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "stdlib.h"
+#include "stdio.h"
 
-#define NUMROWS 3
-#define NUMCOLS 4
+#define NUMROWS 4
+#define NUMCOLS 5
+// so funciona para sistema n x n
 
 void print_matrix(double m[NUMROWS][NUMCOLS])
 {
@@ -14,30 +15,29 @@ void print_matrix(double m[NUMROWS][NUMCOLS])
         }
         printf("\n");
     }
-}
-void jacobi(double E[NUMROWS][NUMCOLS], double chute[NUMROWS], int n)
+} // so funciona para sistemas n x n
+void seildel(double E[NUMROWS][NUMCOLS], double chute[NUMROWS], int n)
 {
-    int iterations[] = {4, 6, 8, 12, 13, 14, 16 , 19};
+    int iterations[] = {4, 6, 8, 12, 13, 14, 16, 19};
     int i2 = 0;
     int achou = 0;
     FILE *fp = fopen("out.txt", "w+");
     for (int i = 0; i < n; i++)
     {
-        double resp[NUMROWS] = {};
         for (int j = 0; j < NUMROWS; j++)
         {
             double bj = E[j][NUMCOLS - 1];
             double soma = 0;
             for (int k = 0; k < NUMCOLS - 1; k++)
-            {
+            { // percorre toda a linha, se não estiver na diagonal...
                 if (k != j)
                 {
                     soma += E[j][k] * chute[k];
                 }
             }
             double xj = (bj - soma) / E[j][j];
-            resp[j] = xj;
-            if (i+1 == iterations[i2])
+            chute[j] = xj;
+            if (i + 1 == iterations[i2])
             {
                 fprintf(fp, "%.16f,\t", xj);
                 achou = 1;
@@ -49,24 +49,19 @@ void jacobi(double E[NUMROWS][NUMCOLS], double chute[NUMROWS], int n)
             achou = 0;
         }
         printf("\n");
-        for (int i = 0; i < NUMROWS; i++)
-        {
-            chute[i] = resp[i];
-        }
     }
 }
 
 int main(void)
 {
-
     double E[NUMROWS][NUMCOLS] =
-        {-7.57, -1.42, 4.15, -1.71,
-         0.66, 6.13, 3.49, 0.04,
-         0.29, 2.42, -4.7, 4.51};
+        {11.24, 1.82, 3.44, -4.1, -4.14,
+         4.12, -10.49, -2.91, -1.58, 1.65,
+         2.39, 4.24, 8.62, 0.12, 2.86,
+         0.89, -3.47, -1.48, 7.72, -0.94};
     print_matrix(E);
 
-    double chute[NUMROWS] = {2.1,0.79,3.6};
-    jacobi(E, chute, 30);
-    print_matrix(E);
+    double chute[NUMROWS] = {-4.19, 4.29, 2.25, -2.58};
+    seildel(E, chute, 30);
     return 0;
 }
