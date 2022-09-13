@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define NUMROWS 3
-#define NUMCOLS 4
+#define NUMROWS 4
+#define NUMCOLS 5
 
 void print_matrix(double m[NUMROWS][NUMCOLS])
 {
@@ -59,10 +59,15 @@ void jacobi(double E[NUMROWS][NUMCOLS], double chute[NUMROWS], int n)
 int main(void)
 {
 
-    double E[NUMROWS][NUMCOLS] =
-        {-7.57, -1.42, 4.15, -1.71,
-         0.66, 6.13, 3.49, 0.04,
-         0.29, 2.42, -4.7, 4.51};
+    double E[NUMROWS][NUMCOLS];
+     FILE *fr = fopen("matriz.txt", "r+");
+    for (int i = 0; i < NUMROWS; i += 1)
+    {
+        for (int j = 0; j < NUMCOLS; j += 1)
+        {
+            fscanf(fr, "%lf, ", &E[i][j]);
+        }
+    }
     print_matrix(E);
 
     double chute[NUMROWS] = {2.1,0.79,3.6};

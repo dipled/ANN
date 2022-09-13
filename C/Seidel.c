@@ -54,11 +54,15 @@ void seildel(double E[NUMROWS][NUMCOLS], double chute[NUMROWS], int n)
 
 int main(void)
 {
-    double E[NUMROWS][NUMCOLS] =
-        {11.24, 1.82, 3.44, -4.1, -4.14,
-         4.12, -10.49, -2.91, -1.58, 1.65,
-         2.39, 4.24, 8.62, 0.12, 2.86,
-         0.89, -3.47, -1.48, 7.72, -0.94};
+    double E[NUMROWS][NUMCOLS];
+     FILE *fr = fopen("matriz.txt", "r+");
+    for (int i = 0; i < NUMROWS; i += 1)
+    {
+        for (int j = 0; j < NUMCOLS; j += 1)
+        {
+            fscanf(fr, "%lf, ", &E[i][j]);
+        }
+    }
     print_matrix(E);
 
     double chute[NUMROWS] = {-4.19, 4.29, 2.25, -2.58};

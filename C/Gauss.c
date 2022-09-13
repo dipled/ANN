@@ -1,6 +1,6 @@
 #include <stdio.h>
-#define NUMROWS 3
-#define NUMCOLS 4
+#define NUMROWS 4
+#define NUMCOLS 5
 
 void gauss(double E[NUMROWS][NUMCOLS]);
 void reverse_substitution(double E[NUMROWS][NUMCOLS]);
@@ -8,9 +8,15 @@ void printMatrix(double m[NUMROWS][NUMCOLS]);
 
 int main()
 {
-    double E[NUMROWS][NUMCOLS] = {1, 1,1, 4,
-                                  2, 0, 1, 4,
-                                  1, 2, -1, 1};
+    double E[NUMROWS][NUMCOLS];
+     FILE *fr = fopen("matriz.txt", "r+");
+    for (int i = 0; i < NUMROWS; i += 1)
+    {
+        for (int j = 0; j < NUMCOLS; j += 1)
+        {
+            fscanf(fr, "%lf, ", &E[i][j]);
+        }
+    }
     gauss(E);
     return 0;
 }
