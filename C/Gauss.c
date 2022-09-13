@@ -1,6 +1,6 @@
 #include <stdio.h>
-#define NUMROWS 4
-#define NUMCOLS 5
+#define NUMROWS 3
+#define NUMCOLS 4
 
 void gauss(double E[NUMROWS][NUMCOLS]);
 void reverse_substitution(double E[NUMROWS][NUMCOLS]);
