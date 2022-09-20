@@ -17,7 +17,7 @@ void print_matrix(double m[NUMROWS][NUMCOLS])
 }
 void jacobi(double E[NUMROWS][NUMCOLS], double chute[NUMROWS], int n)
 {
-    int iterations[] = {4, 6, 8, 12, 13, 14, 16 , 19};
+    int iterations[] = {7, 8, 11, 12, 15, 17, 18 ,19};
     int i2 = 0;
     int achou = 0;
     FILE *fp = fopen("out.txt", "w+");
@@ -70,7 +70,7 @@ int main(void)
     }
     print_matrix(E);
 
-    double chute[NUMROWS] = {2.1,0.79,3.6};
+    double chute[NUMROWS] = {-2.64, -4.63, -3.14};
     jacobi(E, chute, 30);
     print_matrix(E);
     return 0;

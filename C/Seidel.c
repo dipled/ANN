@@ -18,7 +18,7 @@ void print_matrix(double m[NUMROWS][NUMCOLS])
 } // so funciona para sistemas n x n
 void seildel(double E[NUMROWS][NUMCOLS], double chute[NUMROWS], int n)
 {
-    int iterations[] = {4, 6, 8, 12, 13, 14, 16, 19};
+    int iterations[] = {1, 3, 4, 5, 6, 7, 11, 12, 16, 17, 23 ,25};
     int i2 = 0;
     int achou = 0;
     FILE *fp = fopen("out.txt", "w+");
@@ -65,7 +65,7 @@ int main(void)
     }
     print_matrix(E);
 
-    double chute[NUMROWS] = {-4.19, 4.29, 2.25, -2.58};
+    double chute[NUMROWS] = {2.69, 4.24, -3.92, -2.08};
     seildel(E, chute, 30);
     return 0;
 }
