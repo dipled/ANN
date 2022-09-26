@@ -7,7 +7,7 @@ void fpos(double a, double b, int n); // Recebe lim. esq. e dir. do intervalo e 
 
 int main()
 {
-    fpos(0,4.46, 100);
+    fpos(0,4.46, 200);
     return 0;
 }
 

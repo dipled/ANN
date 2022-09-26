@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#define ROWS 4
-#define COLS 3
+#define ROWS 5
+#define COLS 4
 void swapLine(double matrix[ROWS][COLS]){
     float temp;
     printf("Digite a primeira linha\n");
