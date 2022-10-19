@@ -10,7 +10,7 @@ void bissec(double a, double b, int n, double tolF, double tolIn); // recebe lim
 
 int main()
 {
-    bissec(0,4.46, 39, 0, 0);
+    bissec(0,4.46, 200, 0, 0);
     return 0;
 }
 double f(double x)
