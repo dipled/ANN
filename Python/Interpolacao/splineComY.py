@@ -1,4 +1,4 @@
-from methods import *
+from Python.Interpolacao.methods import *
 from math import *
 
 def s(x):

@@ -1,10 +1,10 @@
 from math import *
-from methods import *
+from Python.Interpolacao.methods import *
 
 def p(x):
 	return func_poly(x,coeffs)
 def func(x):
-    return cos(x)**3+2*cos(x)**2+1
+    return cos(x+sqrt(log(x**2)))
 if __name__ == '__main__':
 	
     
@@ -12,7 +12,7 @@ if __name__ == '__main__':
     
 
     
-    x = [-2.895, -1.56, -1.051, -0.164, 0.931, 1.516, 2.514, 3.001, 3.954]
+    x = [1.515,1.895,2.247,2.644,2.823,3.16,3.426,3.77,4.086,4.61,4.792]
     values = [-2.307, -1.838, -1.311, 1.664, 2.636]
 
 

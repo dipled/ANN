@@ -1,5 +1,5 @@
 from math import *
-from methods import *
+from Python.Interpolacao.methods import *
 
 
 def p(x):

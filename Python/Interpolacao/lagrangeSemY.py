@@ -1,4 +1,4 @@
-from methods import *
+from Python.Interpolacao.methods import *
 import math
 
 

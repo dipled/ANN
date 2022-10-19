@@ -1,4 +1,4 @@
-from methods import *
+from Python.Interpolacao.methods import *
 from math import *
 def func(x):
     return cos(x + sqrt(log(x**2)))
