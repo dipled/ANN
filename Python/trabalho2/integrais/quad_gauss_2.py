@@ -151,9 +151,9 @@ if __name__ == '__main__':
         return g
 
 
-    funcs = ['math.sqrt((9.81*71.16)/(0.26))*math.tanh(math.sqrt((9.81*(0.26))/71.16)*x)']
+    funcs = ['math.sqrt((9.81*64.73)/(0.27))*math.tanh(math.sqrt((9.81*(0.27))/64.73)*x)']
     a = [0]
-    b = [6.82]
+    b = [9.43]
     exact_for_degree_less_than = [10]
     for i in range(len(funcs)):
         order = str(int(exact_for_degree_less_than[i]/2))

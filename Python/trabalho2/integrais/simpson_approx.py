@@ -1,4 +1,4 @@
-from math import *
+import math
 def simps(f, a, b, n):
     if n % 2 != 0 or n < 1:
         raise ValueError("n deve ser par e maior q 1")
@@ -11,7 +11,7 @@ def simps(f, a, b, n):
     return (h/3) * (f(a) + 4 * soma_odd + 2 * soma_even + f(b))
 
 def f(x):
-    return sqrt(sin(cos(log(x**2+1)+2)+3)+4)
+    return -x*(x-21)*(x+1)
 
 def simp(x0,x1,x3,y0,y1,y2):
     return ((x1-x0)/3)*(y0+4*y1+y2)
@@ -26,8 +26,8 @@ def simpsPonto(x, y):
     print(f'{somas}')
 
 
-intervalo = [-1.193, 1.631]
-subintervalos = [8, 14, 28, 52, 86, 116, 138, 162, 192, 226, 406]
+intervalo = [0,12]
+subintervalos = [14]
 
 
 

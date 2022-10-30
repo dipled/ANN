@@ -152,14 +152,13 @@ if __name__ == '__main__':
         return g
 
 
-    funcs = ['math.exp(x)*math.sin(x)/(1+x**2)', '(x+1/x)**2', 'math.cos(-x**2/3)', 'math.log(math.sqrt(1+x**2))', 'math.exp(-x**2)']
-    a = [0.522, 0.927, -1.695, 1.546, -1.327]
-    b = [2.743, 2.357, 1.413, 3.234, 1.0]
-    exact_for_degree_less_than = [12, 10, 6, 8, 4]
-
+    funcs = ['-x*(x-21)*(x+1)']
+    a = [0]
+    b = [12]
+    exact_for_degree_less_than = [6]
     
     for i in range(len(funcs)):
         order = str(int(exact_for_degree_less_than[i]/2))
         txt_order = ['raiz'+order, 'peso'+order]
         r = quadratura(change(funcs[i], a[i], b[i]), locals()[txt_order[0]], locals()[txt_order[1]])
-        print(f'{r = }\n')
+        print(r,',')

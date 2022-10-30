@@ -1,4 +1,4 @@
-from math import *
+import math
 from numpy import double
 
 # Usado para aproximar o valor de uma integral
@@ -13,12 +13,12 @@ def trapz(f, a, b, n):
 
 
 def f(x):
-    return e**-x**2
+    return -x*(x-21)*(x+1)
 
-intervalo = [-1.069, 1.256]
-subintervalos = [9, 14, 47, 62, 76, 108, 165, 336, 520, 769, 1893, 8106]
-
-
+intervalo = [0,12]
+subintervalos = [31]
 for i in range(len(subintervalos)):
     r = trapz(f, intervalo[0], intervalo[1], subintervalos[i])
     print(r,',')
+
+    

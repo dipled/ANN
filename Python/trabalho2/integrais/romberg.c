@@ -35,19 +35,20 @@ void romberg(double array[]) {
 }
 
 double f(double x) {
-    return exp(-x*x);
+    return sqrt((9.81*64.73)/(0.27))*tanh(sqrt((9.81*(0.27))/64.73)*x)
+;
 }
 
 int main() {
     // Exemplo
     // Aproximar int exp(-x*x), de 0 a 1
     if (ERROR_ORDER /2 != numElemsFirstCol) {
-        return;
+        return -1;
     }
 
     double a = 0;
-    double b = 1;
-    double h = 0.5;
+    double b = 9.43;
+    double h = 0.943;
     int n =  (int)((b-a) / h);
     printf("%.16f\n", (double)n);
 
